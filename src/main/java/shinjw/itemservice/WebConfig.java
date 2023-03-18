@@ -6,8 +6,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import shinjw.itemservice.web.filter.LogFilter;
 import shinjw.itemservice.web.filter.LoginCheckFilter;
-import shinjw.itemservice.web.interceptor.LogInterceptor;
-import shinjw.itemservice.web.interceptor.LoginCheckInterceptor;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
@@ -17,7 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LogInterceptor())
+       /* registry.addInterceptor(new LogInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/css/**", "/*.ico", "/error");
@@ -31,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(new shinjw.itemservice.exception.interceptor.LogInterceptor())
                 .order(3)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/css/**", "/*.ico", "/error", "/error-page/**");
+                .excludePathPatterns("/css/**", "/*.ico", "/error", "/error-page/**");*/
     }
 
 //    @Bean
