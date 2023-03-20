@@ -8,10 +8,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import shinjw.itemservice.exception.resolver.MyHandlerExceptionResolver;
 import shinjw.itemservice.exception.resolver.UserHandlerExceptionResolver;
-import shinjw.itemservice.typeconverter.converter.IntegerToStringConverter;
 import shinjw.itemservice.typeconverter.converter.IpPortToStringConverter;
-import shinjw.itemservice.typeconverter.converter.StringToIntegerConverter;
 import shinjw.itemservice.typeconverter.converter.StringToIpPortConverter;
+import shinjw.itemservice.typeconverter.formatter.MyNumberFormatter;
 import shinjw.itemservice.web.filter.LogFilter;
 import shinjw.itemservice.web.filter.LoginCheckFilter;
 
@@ -79,11 +78,13 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToIntegerConverter());
-        registry.addConverter(new IntegerToStringConverter());
+        // 주석처리 우선순위
+//        registry.addConverter(new StringToIntegerConverter());
+//        registry.addConverter(new IntegerToStringConverter());
         registry.addConverter(new StringToIpPortConverter());
         registry.addConverter(new IpPortToStringConverter());
 
-
+        //추가
+        registry.addFormatter(new MyNumberFormatter());
     }
 }
