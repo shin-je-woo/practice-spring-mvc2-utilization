@@ -29,6 +29,10 @@ public class Item {
     private ItemType itemType; // 상품 종류
     private String deliveryCode; // 배송 방식
 
+    //파일업로드 추가
+    private UploadFile attachFile;
+    private List<UploadFile> imageFiles;
+
     public Item() {
     }
 
@@ -36,5 +40,13 @@ public class Item {
         this.itemName = itemName;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public Item(Long id, Integer price, Integer quantity, UploadFile attachFile, List<UploadFile> imageFiles) {
+        this.id = id;
+        this.price = price;
+        this.quantity = quantity;
+        this.attachFile = attachFile;
+        this.imageFiles = imageFiles;
     }
 }
